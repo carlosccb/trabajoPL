@@ -70,15 +70,15 @@ repetir
         @ Factorial de un número
 	si (opcion = 1)
    	    entonces
-                _lugar(10,10);
-		escribir_cadena('Ha elegido la opción de Factorial de un número  ');
+        	_lugar(10,10);
+			escribir_cadena('Ha elegido la opción de Factorial de un número  ');
 
 	si_no  
  		@ Máximo común divisor
 		si (opcion = 2)
 		   entonces
-			_lugar(10,10);
-			escribir_cadena(' Ha elegido la opción de Máximo común divisor');
+				_lugar(10,10);
+				escribir_cadena(' Ha elegido la opción de Máximo común divisor');
 
 		@ Resto de opciones
 		si_no  
