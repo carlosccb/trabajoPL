@@ -31,6 +31,8 @@ mientras (dato < 10) hacer
 
 leer(dato);
 escribir(dato);
+dato := 'Ahora soy una cadena';
+escribir_cadena(dato);
 
 leer_cadena(str);
 escribir_cadena(str);

@@ -349,7 +349,7 @@ void leer_cadena() /* Leer una variable numerica por teclado */
  variable = (Symbol *)(*pc); 
 
  /* Se comprueba si el identificador es una variable */ 
-  if ((variable->tipo == INDEFINIDA) || (variable->tipo == CADENA))
+  if ((variable->tipo == INDEFINIDA) || (variable->tipo == CADENA) || (variable->tipo == VAR))
     { 
     printf("Valor--> ");
     while((c=getchar())=='\n') ;
@@ -553,17 +553,38 @@ void dowhilecode(){
 void forcode(){
 
 
- Datum d, daux1, daux2;
+ Datum d, dexpr1, dexpr2, dexpr3;
  Inst *savepc = pc;   /* Puntero auxiliar para guardar pc */
+
+
+
 
 
 	/* ¿ Necesario para igualar la variable al desde ? */
 	execute(savepc+4);
 	assign();
-	d = pop();	//Se supone que esto debe ser la variable
+
+	
+	execute(*((Inst **)(savepc)));	//Ejecutamos segunda expresion
+	dexpr2 = pop();
+
+/*
+	execute(*((Inst **)(savepc+1)));	//Ejecutamos tercera expresion
+	dexpr3 = pop();
+*/
+
+	while(dexpr2.val){
+
+		execute(*((Inst **)(savepc+2)));   /* Ejecutar codigo */
+
+		execute(*((Inst **)(savepc+1)));	/* Ejecutamos tercera expresion */
+
+		execute(*((Inst **)(savepc)));
+		dexpr2 = pop();
+	}
 
 
-
+ pc= *((Inst **)(savepc+3));
 
 }
 

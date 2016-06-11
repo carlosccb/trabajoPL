@@ -63,10 +63,13 @@ stmt :    /* nada: epsilon produccion */  {$$=progp;}
                    ($1)[2]=(Inst)$4; /* siguiente instruccion al bucle */
 				  }
 
-		| for PARA var DESDE expr end HASTA expr end PASO expr end HACER stmtlist FIN_PARA end
+		| for var DESDE expr end HASTA expr end PASO expr end HACER stmtlist FIN_PARA end
 				  {
 					/* No se cuantos STOPS hay que poner (se ponen con end salvo para las condiciones) */
-					($1)[1]=(Inst)$6;
+					($1)[1]=(Inst)$7;
+					($1)[2]=(Inst)$10;
+					($1)[3]=(Inst)$13;
+					($1)[4]=(Inst)$15;
 
 				  }
         | if cond ENTONCES stmtlist FIN_SI end /* proposicion if sin parte else */

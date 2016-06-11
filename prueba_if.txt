@@ -37,5 +37,20 @@ escribir(dato);
 Escribir(dato);
 
 
+escribir_cadena('--------------------------------');
+escribir_cadena('--------------------------------');
+
+iter := 0;
+PARA iter DESDE 0 HASTA i == 10 PASO i := i + 1
+
+	HACER
+
+		escribir(i);
+
+FIN_PARA;		
+
+
+
+
 
 
