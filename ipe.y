@@ -51,6 +51,7 @@ stmt :    /* nada: epsilon produccion */  {$$=progp;}
 		| ESCRIBIR_CADENA '(' expr ')'	{code(escribir_cadena); $$ = $3;}
         | LEER '(' VAR ')'			{code2(leervariable,(Inst)$3);}
 		| LEER_CADENA '(' expr ')'	{code2(leer_cadena,(Inst)$3);}
+		| TOKEN_BORRAR              {BORRAR;}
         | while cond HACER stmtlist FIN_MIENTRAS end
                   {
                    ($1)[1]=(Inst)$4; /* cuerpo del bucle */
