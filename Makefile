@@ -4,8 +4,17 @@ LEXICO = ipe_lexico
 
 CC = gcc
 YFLAGS = -d -v 
-LFLAGS = -lm -lfl 
+LFLAGS = -lm
 OBJS= $(FUENTE).tab.o lex.yy.o  init.o math.o symbol.o  code.o
+
+
+OS := $(shell uname)
+
+ifeq ($(OS),Darwin)
+   LFLAGS := $(LFLAGS) -ll
+else ifeq ($(OS),Linux)
+   LFLAGS := $(LFLAGS) -lfl
+endif
 
 $(FUENTE)3.exe: $(OBJS) 
 	$(CC) $(OBJS) $(LFLAGS) -o $(FUENTE).exe
