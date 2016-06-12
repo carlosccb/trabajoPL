@@ -93,14 +93,14 @@ comentario_varias_lineas		\#([\n]|.)*\#
 
 ">="	{return MAYOR_IGUAL;}
 "<="	{return MENOR_IGUAL;}
-"=="	{return IGUAL;}
+"="	    {return IGUAL;}
 "<>"	{return DISTINTO;}
 ">"		{return MAYOR_QUE;}
 "<"		{return MENOR_QUE;}
 "||"	{return CONCATENACION;}
 "**"	{return POTENCIA;}
 ":="	{return ASIGNACION;}
-^#       { 
+"^#"       {
  	  BORRAR; 
 	  LUGAR(10,10);
 	  INTENSIDAD;
