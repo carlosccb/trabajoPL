@@ -11,13 +11,14 @@ OBJS= $(FUENTE).tab.o lex.yy.o  init.o math.o symbol.o  code.o
 OS := $(shell uname)
 
 ifeq ($(OS),Darwin)
-   LFLAGS := $(LFLAGS) -ll
+	CC = clang
+   LFLAGS := $(LFLAGS) -ll -g
 else ifeq ($(OS),Linux)
    LFLAGS := $(LFLAGS) -lfl
 endif
 
 $(FUENTE)3.exe: $(OBJS) 
-	$(CC) $(OBJS) $(LFLAGS) -o $(FUENTE).exe
+	$(CC) $(LFLAGS) $(OBJS) -o $(FUENTE).exe
 
 code9.o:  code9.c $(FUENTE).h
 	$(CC) -c code.c
