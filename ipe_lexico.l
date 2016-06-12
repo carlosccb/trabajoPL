@@ -70,7 +70,6 @@ comentario_varias_lineas		\#([\n]|.)*\#
 
 					//Hay que declararla como tipo en la tabla de simbolos para asi poder instalarla
 
-
 						yylval.sym = install_string("", CADENA, yytext);
 
 					  return CADENA;
