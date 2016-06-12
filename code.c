@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include  <math.h>
+#include <stdlib.h>
 
 #include "ipe.h"
 #include "ipe.tab.h"
@@ -348,17 +349,19 @@ void leer_cadena() /* Leer una variable numerica por teclado */
 
  variable = (Symbol *)(*pc); 
 
+ variable->u.str = (char *) calloc(1024, sizeof(char));
  /* Se comprueba si el identificador es una variable */ 
   if ((variable->tipo == INDEFINIDA) || (variable->tipo == CADENA) || (variable->tipo == VAR))
     { 
-    printf("Valor--> ");
-    while((c=getchar())=='\n') ;
-    ungetc(c,stdin);
-    scanf("%s",variable->u.str);
-    variable->tipo=CADENA;
-	variable->cadena=1;
-    pc++;
-
+      printf("Valor--> ");
+	  //Coge \ns
+      while((c=getchar())=='\n');
+	  //Coge la primera letra que se queda atrás
+      ungetc(c,stdin);
+      scanf("%s",variable->u.str);
+      variable->tipo=CADENA;
+	  variable->cadena=1;
+      pc++;
    }
  else
      execerror("No es una variable cadena",variable->u.str);
