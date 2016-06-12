@@ -83,7 +83,6 @@ stmt :    /* nada: epsilon produccion */  {$$=progp;}
                    ($1)[2]=(Inst)$7; /* cuerpo del else */
                    ($1)[3]=(Inst)$9; /* siguiente instruccion al if-else */
                   }
-//        | '{' stmtlist '}'	{$$ = $2;}
         ;
 
 
