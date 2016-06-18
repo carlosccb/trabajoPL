@@ -52,7 +52,7 @@ stmt :    /* nada: epsilon produccion */  {$$=progp;}
         | LEER '(' VAR ')'			{code2(leervariable,(Inst)$3);}
 		| LEER_CADENA '(' VAR ')'	{code2(leer_cadena,(Inst)$3);}
 		| TOKEN_BORRAR              {BORRAR;}
-		| TOKEN_LUGAR '(' expr ',' expr  ')'  {}
+		| TOKEN_LUGAR '(' expr ',' expr  ')'  {} /*{$$=$3;code2(funcion2,(Inst)$1->u.ptr);}*/
         | while cond HACER stmtlist FIN_MIENTRAS end
                   {
                    ($1)[1]=(Inst)$4; /* cuerpo del bucle */

@@ -95,4 +95,6 @@ void negacion();
 void leervariable();
 void leer_cadena();
 
+void func_lugar();
+
 #endif

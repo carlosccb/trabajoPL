@@ -622,3 +622,28 @@ void ifcode()
  pc= *((Inst **)(savepc+2));
 }
 
+/************************************/
+/* Codigo hecho por mi para macros */
+/************************************/
+
+//void _borrar() {}
+
+void func_lugar() {
+  Datum d;
+  Inst *savepc = pc;    /* Puntero auxiliar para guardar pc */
+  int fil, col;
+
+  d = pop();              /* Obtener el resultado de la condicion */
+  fil = d.val;
+  d = pop();              /* Obtener el resultado de la condicion */
+  col = d.val;
+
+  printf("fil: %d, col %d\n", fil, col);
+
+  LUGAR(fil, col);
+}
+
+/************************************/
+/* Codigo hecho por mi para macros */
+/************************************/
+
