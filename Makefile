@@ -12,13 +12,13 @@ OS := $(shell uname)
 
 ifeq ($(OS),Darwin)
 	CC = clang
-   LFLAGS := $(LFLAGS) -ll -g
+   LFLAGS := $(LFLAGS) -ll
 else ifeq ($(OS),Linux)
    LFLAGS := $(LFLAGS) -lfl
 endif
 
 $(FUENTE)3.exe: $(OBJS) 
-	$(CC) $(LFLAGS) $(OBJS) -o $(FUENTE).exe
+	$(CC) $(OBJS) $(LFLAGS) -o $(FUENTE).exe
 
 code9.o:  code9.c $(FUENTE).h
 	$(CC) -c code.c
