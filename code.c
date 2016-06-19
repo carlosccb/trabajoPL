@@ -327,7 +327,7 @@ void leervariable() /* Leer una variable numerica por teclado */
  /* Se comprueba si el identificador es una variable */ 
   if ((variable->tipo == INDEFINIDA) || (variable->tipo == VAR))
     { 
-    printf("Valor--> ");
+//    printf("Valor--> ");
     while((c=getchar())=='\n') ;
     ungetc(c,stdin);
     scanf("%lf",&variable->u.val);
@@ -353,7 +353,7 @@ void leer_cadena() /* Leer una variable numerica por teclado */
  /* Se comprueba si el identificador es una variable */ 
   if ((variable->tipo == INDEFINIDA) || (variable->tipo == CADENA) || (variable->tipo == VAR))
     { 
-      printf("Valor--> ");
+//      printf("Valor--> ");
 	  //Coge \ns
       while((c=getchar())=='\n');
 	  //Coge la primera letra que se queda atrás
@@ -547,7 +547,7 @@ void dowhilecode(){
      execute(*((Inst **)(savepc)));   /* Ejecutar codigo */
      execute(savepc+2);               /* Ejecutar condicion */
      d=pop();              /* Obtener el resultado de la condicion */
-    } while(d.val);
+    } while(! d.val);
 
  pc= *((Inst **)(savepc+1));
 }

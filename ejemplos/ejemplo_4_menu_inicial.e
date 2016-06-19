@@ -35,8 +35,6 @@ escribir_cadena(nombre);
 escribir_cadena(' >> al intérprete de pseudocódigo en español:\'ipe.exe\'.');
 
 _lugar(40,10);
-escribir_cadena('Pulsa una tecla para continuar');
-leer_cadena(pausa);
 
 repetir 
 
@@ -74,7 +72,9 @@ repetir
 			escribir_cadena('Ha elegido la opción de Factorial de un número  ');
 
 	si_no  
+
  		@ Máximo común divisor
+
 		si (opcion = 2)
 		   entonces
 				_lugar(10,10);
