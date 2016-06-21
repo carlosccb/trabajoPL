@@ -156,7 +156,7 @@ void escribir() /* sacar de la pila el valor superior y escribirlo */
  
  d=pop();  /* Obtener numero */
  
- printf("\t ---> %.8g\n",d.val);
+ printf("%.8g\n",d.val);
 }
 
 
@@ -166,7 +166,7 @@ void escribir_cadena() /* sacar de la pila el valor superior y escribirlo */
  
  d=pop();  /* Obtener numero */
  
- printf("\t ---> %s\n",d.str);
+ printf("%s\n",d.str);
 }
 
 
@@ -541,12 +541,14 @@ void dowhilecode(){
  Datum d;
  Inst *savepc = pc;    /* Puntero auxiliar para guardar pc */
 
-
 	do{   /* Mientras se cumpla la condicion */
 
-     execute(*((Inst **)(savepc)));   /* Ejecutar codigo */
-     execute(savepc+2);               /* Ejecutar condicion */
+     execute(savepc+2);               /* Ejecutar el cuerpo del bucle */
+
+     execute(*((Inst **)(savepc)));   /* Ejecutar la condición */
+
      d=pop();              /* Obtener el resultado de la condicion */
+
     } while(! d.val);
 
  pc= *((Inst **)(savepc+1));
@@ -556,31 +558,34 @@ void dowhilecode(){
 void forcode(){
 
 
+ Symbol *variable;
+
  Datum d, dexpr1, dexpr2, dexpr3;
  Inst *savepc = pc;   /* Puntero auxiliar para guardar pc */
 
+variable = *(Symbol **)(savepc+4); 
+
+printf("Variable del bucle para -> %s\n",variable->nombre);  
 
 
 
-
-	/* ¿ Necesario para igualar la variable al desde ? */
-	execute(savepc+4);
-	assign();
-
+  execute(savepc+5);  //Ejecutamos segunda expresion
+  dexpr1 = pop();
+ 
 	
 	execute(*((Inst **)(savepc)));	//Ejecutamos segunda expresion
 	dexpr2 = pop();
 
-/*
+
 	execute(*((Inst **)(savepc+1)));	//Ejecutamos tercera expresion
 	dexpr3 = pop();
-*/
+
 
 	while(dexpr2.val){
 
-		execute(*((Inst **)(savepc+2)));   /* Ejecutar codigo */
+		execute(*((Inst **)(savepc+2)));   // Ejecutar codigo 
 
-		execute(*((Inst **)(savepc+1)));	/* Ejecutamos tercera expresion */
+		execute(*((Inst **)(savepc+1)));	 // Ejecutamos tercera expresion 
 
 		execute(*((Inst **)(savepc)));
 		dexpr2 = pop();

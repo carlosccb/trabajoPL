@@ -52,17 +52,17 @@ stmt :    /* nada: epsilon produccion */  {$$=progp;}
         | LEER '(' VAR ')'			{code2(leervariable,(Inst)$3);}
 		| LEER_CADENA '(' VAR ')'	{code2(leer_cadena,(Inst)$3);}
 		| TOKEN_BORRAR              {BORRAR;}
-		| TOKEN_LUGAR '(' expr ',' expr  ')'  {} /*{$$=$3;code2(funcion2,(Inst)$1->u.ptr);}*/
+		| TOKEN_LUGAR '(' expr ',' expr  ')'  {  } /*{$$=$3;code2(funcion2,(Inst)$1->u.ptr);}*/
         | while cond HACER stmtlist FIN_MIENTRAS end
                   {
                    ($1)[1]=(Inst)$4; /* cuerpo del bucle */
                    ($1)[2]=(Inst)$6; /* siguiente instruccion al bucle */
                   }
 
-		| dowhile stmtlist HASTA cond
+		| dowhile stmtlist end HASTA cond end
 				  {
-                   ($1)[1]=(Inst)$2; /* cuerpo del bucle */
-                   ($1)[2]=(Inst)$4; /* siguiente instruccion al bucle */
+                   ($1)[1]=(Inst)$5; /* condicion del bucle */
+                   ($1)[2]=(Inst)$6; /* siguiente instruccion al bucle */
 				  }
 
 		| for var DESDE expr end HASTA expr end PASO expr end HACER stmtlist FIN_PARA end
@@ -111,7 +111,7 @@ if:       SI         	{$$= code(ifcode); code3(STOP,STOP,STOP);}
 end :    /* nada: produccion epsilon */  {code(STOP); $$ = progp;}
         ;
 
-var:	  VAR 				{$$=code3(varpush,(Inst)$1,eval);}
+var:	  VAR 				{$$=code((Inst)$1);}
 		;
 
 stmtlist:  /* nada: prodcuccion epsilon */ {$$=progp;}

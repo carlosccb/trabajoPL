@@ -38,61 +38,61 @@ _lugar(40,10);
 
 repetir 
 
- @ Opciones disponibles
- _borrar;
+    @ Opciones disponibles
+    _borrar;
 
- _lugar(10,10);
- escribir_cadena(' Factorial de un número --> 1 ');
+    _lugar(10,10);
+    escribir_cadena(' Factorial de un número --> 1 ');
 
- _lugar(11,10);
- escribir_cadena(' Máximo común divisor ----> 2 ');
+    _lugar(11,10);
+    escribir_cadena(' Máximo común divisor ----> 2 ');
 
- _lugar(12,10);
- escribir_cadena(' Finalizar ---------------> 0 ');
+    _lugar(12,10);
+    escribir_cadena(' Finalizar ---------------> 0 ');
 
- _lugar(15,10);
- escribir_cadena(' Elige una opcion ');
+    _lugar(15,10);
+    escribir_cadena(' Elige una opcion ');
 
- leer(opcion);
+    leer(opcion);
 
- _borrar;
+    _borrar;
 
- si (opcion = 0)        
+    si (opcion = 0)        
     entonces  
-	@ Fin del programa
+        @ Fin del programa
         _lugar(10,10);
         escribir_cadena(nombre);
         escribir_cadena(': gracias por usar el intérprete ipe.exe ');
 
-   si_no
+    si_no
         @ Factorial de un número
-	si (opcion = 1)
-   	    entonces
-        	_lugar(10,10);
-			escribir_cadena('Ha elegido la opción de Factorial de un número  ');
+        si (opcion = 1)
+            entonces
+            _lugar(10,10);
+            escribir_cadena('Ha elegido la opción de Factorial de un número  ');
 
-	si_no  
+        si_no  
 
- 		@ Máximo común divisor
+            @ Máximo común divisor
 
-		si (opcion = 2)
-		   entonces
-				_lugar(10,10);
-				escribir_cadena(' Ha elegido la opción de Máximo común divisor');
+            si (opcion = 2)
+            entonces
+                _lugar(10,10);
+                escribir_cadena(' Ha elegido la opción de Máximo común divisor');
 
-		@ Resto de opciones
-		si_no  
-			_lugar(15,10);
-			escribir_cadena(' Ha elegido una opción incorrecta ');
-		fin_si;  			
-	fin_si;  
- fin_si;  
+            @ Resto de opciones
+            si_no  
+                _lugar(15,10);
+                escribir_cadena(' Ha elegido una opción incorrecta ');
+            fin_si;  			
+        fin_si;  
+    fin_si;  
 
- _lugar(40,10); 
- escribir_cadena('\n Pulse una tecla para continuar --> ');
- leer_cadena(pausa);
- 
- hasta (opcion = 0); 
+    _lugar(40,10); 
+    escribir_cadena('\n Pulse una tecla para continuar --> ');
+    leer_cadena(pausa);
+
+hasta (opcion = 0); 
 
 
 @ Despedida final
