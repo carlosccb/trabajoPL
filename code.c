@@ -563,34 +563,67 @@ void forcode(){
  Datum d, dexpr1, dexpr2, dexpr3;
  Inst *savepc = pc;   /* Puntero auxiliar para guardar pc */
 
-variable = *(Symbol **)(savepc+4); 
+	variable = *(Symbol **)(savepc+5);
+	printf("Variable del bucle para -> %s\n",variable->nombre);  
 
-printf("Variable del bucle para -> %s\n",variable->nombre);  
+	execute(savepc+7);  				//Ejecutamos primera expresion
+	dexpr1 = pop();
+	printf("expr1 --> %lf\n", dexpr1.val);
 
-
-
-  execute(savepc+5);  //Ejecutamos segunda expresion
-  dexpr1 = pop();
- 
-	
-	execute(*((Inst **)(savepc)));	//Ejecutamos segunda expresion
+	execute(*((Inst **)(savepc)));		//Ejecutamos segunda expresion
 	dexpr2 = pop();
-
+	printf("expr2 --> %lf\n", dexpr2.val);
 
 	execute(*((Inst **)(savepc+1)));	//Ejecutamos tercera expresion
 	dexpr3 = pop();
+	printf("expr3 --> %lf\n", dexpr3.val);
 
 
-	while(dexpr2.val){
+	/* 
+		Habra que comprobar antes los signos de las expresiones 2 y 3 
+		y quizas luego modificarles los valores, ya que sino el for no
+		se puede hacer siempre con un menor que
 
-		execute(*((Inst **)(savepc+2)));   // Ejecutar codigo 
+																	*/
+	if(dexpr3.val == 0){
 
-		execute(*((Inst **)(savepc+1)));	 // Ejecutamos tercera expresion 
-
-		execute(*((Inst **)(savepc)));
-		dexpr2 = pop();
+		execerror (" Bucle for con aumentos de 0. Bucle infinito ", (char *) 0);
+		return;
 	}
 
+	else if(dexpr3.val < 0){
+
+		if(dexpr2.val > dexpr1.val){
+
+			execerror (" Expresiones bucle for incorrectas. Bucle infinito ", (char *) 0);
+			return;
+		}
+
+		else{
+
+			for(variable->u.val = dexpr1.val; variable->u.val >= dexpr2.val; variable->u.val += dexpr3.val){
+
+				execute(*((Inst **)(savepc+2)));	// Ejecutar cuerpo del bucle
+
+				execute(*((Inst **)(savepc)));		// Ejecutar condicion de parada
+				dexpr2 = pop();
+				printf("variable --> %lf\n", variable->u.val);
+			}
+		}
+
+	}
+
+	else{
+
+		for(variable->u.val = dexpr1.val; variable->u.val <= dexpr2.val; variable->u.val += dexpr3.val){
+
+			execute(*((Inst **)(savepc+2)));	// Ejecutar cuerpo del bucle
+
+			execute(*((Inst **)(savepc)));		// Ejecutar condicion de parada
+			dexpr2 = pop();
+			printf("variable --> %lf\n", variable->u.val);
+		}
+	}
 
  pc= *((Inst **)(savepc+3));
 

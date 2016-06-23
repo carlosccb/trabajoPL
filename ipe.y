@@ -111,7 +111,7 @@ if:       SI         	{$$= code(ifcode); code3(STOP,STOP,STOP);}
 end :    /* nada: produccion epsilon */  {code(STOP); $$ = progp;}
         ;
 
-var:	  VAR 				{$$=code((Inst)$1);}
+var:	  VAR 				{$$=code3(varpush,(Inst)$1,eval);}	// Dejar code((Inst)$1 si no hay forma)
 		;
 
 stmtlist:  /* nada: prodcuccion epsilon */ {$$=progp;}
