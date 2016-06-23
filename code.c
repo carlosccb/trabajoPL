@@ -97,8 +97,7 @@ void assign() /* asignar el valor superior al siguiente valor */
  d2=pop();    /* Obtener numero   */
  
  if (d1.sym->tipo != VAR && d1.sym->tipo != CADENA && d1.sym->tipo != INDEFINIDA)
-   execerror(" asignacion a un elemento que no es una variable ", 
-	     d1.sym->nombre);
+   execerror(" asignacion a un elemento que no es una variable ", d1.sym->nombre);
 
   if(d1.sym->cadena == 0){
 	  d1.sym->u.val=d2.val;   /* Asignar valor   */
@@ -599,20 +598,15 @@ void forcode(){
  Inst *savepc = pc;   /* Puntero auxiliar para guardar pc */
 
 	variable = *(Symbol **)(savepc+5);
-	printf("Variable del bucle para -> %s\n",variable->nombre);  
 
 	execute(savepc+7);  				//Ejecutamos primera expresion
 	dexpr1 = pop();
-	printf("expr1 --> %lf\n", dexpr1.val);
 
 	execute(*((Inst **)(savepc)));		//Ejecutamos segunda expresion
 	dexpr2 = pop();
-	printf("expr2 --> %lf\n", dexpr2.val);
 
 	execute(*((Inst **)(savepc+1)));	//Ejecutamos tercera expresion
 	dexpr3 = pop();
-	printf("expr3 --> %lf\n", dexpr3.val);
-
 
 	/* 
 		Habra que comprobar antes los signos de las expresiones 2 y 3 
@@ -636,13 +630,16 @@ void forcode(){
 
 		else{
 
+
+			/* FALLA PORQUE LA VARIABLE DEL BUCLE TIENE DE TIPO INDEFINIDA, POR LO QUE DA ERROR AL USARLA */
+
+
 			for(variable->u.val = dexpr1.val; variable->u.val >= dexpr2.val; variable->u.val += dexpr3.val){
 
 				execute(*((Inst **)(savepc+2)));	// Ejecutar cuerpo del bucle
 
 				execute(*((Inst **)(savepc)));		// Ejecutar condicion de parada
 				dexpr2 = pop();
-				printf("variable --> %lf\n", variable->u.val);
 			}
 		}
 
@@ -656,7 +653,6 @@ void forcode(){
 
 			execute(*((Inst **)(savepc)));		// Ejecutar condicion de parada
 			dexpr2 = pop();
-			printf("variable --> %lf\n", variable->u.val);
 		}
 	}
 

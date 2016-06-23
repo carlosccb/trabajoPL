@@ -87,7 +87,7 @@ comentario_varias_lineas		\#([\n]|.)*\#
 				  Symbol *s;
 
 					if ((s=lookup(yytext)) == 0)
-						s = install (yytext, INDEFINIDA, 0.0);
+						s = install (yytext, VAR, 0.0);		//No se si deberia hacer esto (antes INDEFINIDA)
 					yylval.sym = s;
 
 				  return s->tipo == INDEFINIDA ? VAR : s->tipo;
