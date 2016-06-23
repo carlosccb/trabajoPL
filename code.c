@@ -180,13 +180,17 @@ void escribir_cadena() /* sacar de la pila el valor superior y escribirlo */
 
 			if(d.str[i] == '\\'){
 
-				if(d.str[i+1] == 'n')
+				if(d.str[i+1] == 'n'){
+
 					printf("\n");
+					i++;
+				}
 
-				if(d.str[i+1] == 't')
+				if(d.str[i+1] == 't'){
+
 					printf("\t");
-
-
+					i++;
+				}
 			}
 
 			else
