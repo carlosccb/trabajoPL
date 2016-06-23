@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include  <math.h>
+#include <math.h>
+#include <string.h>
 #include <stdlib.h>
 
 #include "ipe.h"
@@ -166,7 +167,37 @@ void escribir_cadena() /* sacar de la pila el valor superior y escribirlo */
  
  d=pop();  /* Obtener numero */
  
- printf("%s\n",d.str);
+// printf("%s\n",d.str);
+
+	int i;
+
+	for(i = 0; i < strlen(d.str); i++){
+
+		if(i == strlen(d.str) - 1)
+			printf("%c", d.str[i]);
+
+		else{
+
+			if(d.str[i] == '\\'){
+
+				if(d.str[i+1] == 'n')
+					printf("\n");
+
+				if(d.str[i+1] == 't')
+					printf("\t");
+
+
+			}
+
+			else
+				printf("%c", d.str[i]);
+
+		}
+
+	}
+
+	printf("\n");
+
 }
 
 

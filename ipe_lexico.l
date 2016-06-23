@@ -68,11 +68,16 @@ comentario_varias_lineas		\#([\n]|.)*\#
 
 {cadena}		{
 
-					//Hay que declararla como tipo en la tabla de simbolos para asi poder instalarla
+				  char *cad = malloc(strlen(yytext) - 2);
+				  int i;
 
-						yylval.sym = install_string("", CADENA, yytext);
+					for(i = 1; i < (strlen(yytext) - 1); i++)
+						cad[i - 1] = yytext[i];
 
-					  return CADENA;
+
+					yylval.sym = install_string("", CADENA, cad);
+
+				  return CADENA;
 
 				}
 
