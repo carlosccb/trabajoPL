@@ -116,7 +116,6 @@ void assign() /* asignar el valor superior al siguiente valor */
 void constpush()  /* meter una constante en la pila */
 {
  Datum d;
- 
  d.val= ((Symbol *)*pc++)->u.val;
  push(d);
 }
@@ -696,25 +695,17 @@ void ifcode()
 
 void func_lugar() {
 
-	printf(" func_lugar | ");
-
   int fil, col;
-
-	printf("fil -> %d | ", fil);
 
   Datum d;
   Inst *savepc = pc;    /* Puntero auxiliar para guardar pc */
 
-  //d = pop();              /* Obtener el resultado de la condicion */
-  //fil = d.val;
+  d = pop();              /* Obtener el resultado de la condicion */
+  col = d.val;
 
-	printf("fil -> %d", fil);
-	fflush(stdout);
 
-  //d = pop();              /* Obtener el resultado de la condicion */
-  //col = d.val;
-
-  printf("fil: %d, col %d\n", fil, col);
+  d = pop();              /* Obtener el resultado de la condicion */
+  fil = d.val;
 
   LUGAR(fil, col);
 }

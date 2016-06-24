@@ -52,7 +52,7 @@ stmt :    /* nada: epsilon produccion */  {$$=progp;}
         | LEER '(' VAR ')'			{code2(leervariable,(Inst)$3);}
 		| LEER_CADENA '(' VAR ')'	{code2(leer_cadena,(Inst)$3);}
 		| TOKEN_BORRAR              {BORRAR;}
-		| TOKEN_LUGAR '(' expr ',' expr  ')'  {}
+		| TOKEN_LUGAR '(' expr ',' expr  ')'  {code(func_lugar);}
 											/*{code3(varpush,(Inst)$3, eval); code3(varpush,(Inst)$5,eval); funcion2();} /*func_lugar();  }*/
 											/*  printf("_ %s  _ $3 -> %d . %d\n", $3, (int)$3, (int)$5);  }
 											/*{$$=$3;code2(funcion2,(Inst)$1->u.ptr);}*/

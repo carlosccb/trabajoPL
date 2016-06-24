@@ -18,7 +18,7 @@
 _borrar;
 
 _lugar(3,10);
-escribir_cadena('Ejemplo de cambio del tipo de valo \n');
+escribir_cadena('Ejemplo de cambio del tipo de valor \n');
 
 escribir_cadena('Introduce un número --> ');
 leer(dato);
