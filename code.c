@@ -596,9 +596,9 @@ void forcode(){
  Datum d, dexpr1, dexpr2, dexpr3;
  Inst *savepc = pc;   /* Puntero auxiliar para guardar pc */
 
-	variable = *(Symbol **)(savepc+5);
+	variable = *(Symbol **)(savepc+4);
 
-	execute(savepc+7);  				//Ejecutamos primera expresion
+	execute(savepc+5);  				//Ejecutamos primera expresion
 	dexpr1 = pop();
 
 	execute(*((Inst **)(savepc)));		//Ejecutamos segunda expresion
