@@ -199,7 +199,6 @@ void escribir_cadena() /* sacar de la pila el valor superior y escribirlo */
 
 	}
 
-	printf("\n");
 
 }
 
@@ -387,12 +386,12 @@ void leer_cadena() /* Leer una variable de tipo cadena por teclado */
  /* Se comprueba si el identificador es una variable */ 
   if ((variable->tipo == INDEFINIDA) || (variable->tipo == CADENA) || (variable->tipo == VAR))
     { 
-//      printf("Valor--> ");
 	  //Coge \ns
       while((c=getchar())=='\n');
 	  //Coge la primera letra que se queda atrás
       ungetc(c,stdin);
 	  fgets(variable->u.str, 1023, stdin);
+	  variable->u.str[strlen(variable->u.str)-1] = '\0';
       variable->tipo=CADENA;
 	  variable->cadena=1;
       pc++;
@@ -695,17 +694,25 @@ void ifcode()
 /* Codigo hecho por mi para macros */
 /************************************/
 
-//void _borrar() {}
-
 void func_lugar() {
-  Datum d;
-  Inst *savepc = pc;    /* Puntero auxiliar para guardar pc */
+
+	printf(" func_lugar | ");
+
   int fil, col;
 
-  d = pop();              /* Obtener el resultado de la condicion */
-  fil = d.val;
-  d = pop();              /* Obtener el resultado de la condicion */
-  col = d.val;
+	printf("fil -> %d | ", fil);
+
+  Datum d;
+  Inst *savepc = pc;    /* Puntero auxiliar para guardar pc */
+
+  //d = pop();              /* Obtener el resultado de la condicion */
+  //fil = d.val;
+
+	printf("fil -> %d", fil);
+	fflush(stdout);
+
+  //d = pop();              /* Obtener el resultado de la condicion */
+  //col = d.val;
 
   printf("fil: %d, col %d\n", fil, col);
 
