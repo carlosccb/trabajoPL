@@ -393,7 +393,6 @@ void leer_cadena() /* Leer una variable de tipo cadena por teclado */
 	  //Coge la primera letra que se queda atrás
       ungetc(c,stdin);
 	  fgets(variable->u.str, 1023, stdin);
-      //scanf("%s",variable->u.str);
       variable->tipo=CADENA;
 	  variable->cadena=1;
       pc++;
