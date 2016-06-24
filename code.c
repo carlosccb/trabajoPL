@@ -155,7 +155,7 @@ void escribir() /* sacar de la pila el valor superior y escribirlo */
  
  d=pop();  /* Obtener numero */
  
- printf("%.8g\n",d.val);
+ printf("%.8g",d.val);
 }
 
 

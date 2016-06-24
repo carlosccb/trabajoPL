@@ -189,6 +189,8 @@ int main(int argc, char *argv[])
 /* initcode inicializa el vector de intrucciones y la pila del interprete */
  for (initcode(); yyparse(); initcode()) execute(prog);
 
+	printf("\n");
+
  return 0;
 
 }
