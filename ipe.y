@@ -28,7 +28,7 @@
        Inst *inst;     /* instruccion de maquina */
 }
 
-%token <sym> NUMBER VAR CONSTANTE CADENA FUNCION0_PREDEFINIDA FUNCION1_PREDEFINIDA FUNCION2_PREDEFINIDA INDEFINIDA PRINT WHILE IF ELSE READ /*   */ O Y NO LEER LEER_CADENA ESCRIBIR ESCRIBIR_CADENA SI ENTONCES SI_NO FIN_SI MIENTRAS HACER FIN_MIENTRAS REPETIR HASTA PARA DESDE PASO FIN_PARA TOKEN_BORRAR TOKEN_LUGAR FIN
+%token <sym> NUMBER VAR CONSTANTE CADENA FUNCION0_PREDEFINIDA FUNCION1_PREDEFINIDA FUNCION2_PREDEFINIDA INDEFINIDA PRINT WHILE IF ELSE READ O Y NO LEER LEER_CADENA ESCRIBIR ESCRIBIR_CADENA SI ENTONCES SI_NO FIN_SI MIENTRAS HACER FIN_MIENTRAS REPETIR HASTA PARA DESDE PASO FIN_PARA TOKEN_BORRAR TOKEN_LUGAR FIN
 %type <inst> stmt asgn expr stmtlist cond while dowhile for if end var
 %right ASIGNACION
 %left O_LOGICO
@@ -37,7 +37,7 @@
 %left '+' '-'
 %left '*' '/' MODULO DIVISION_ENTERA
 %left UNARIO NEGACION
-%right POTENCIA   
+%right POTENCIA 
 %%
 
 list :    /* nada: epsilon produccion */ 
@@ -51,7 +51,7 @@ stmt :    /* nada: epsilon produccion */  {$$=progp;}
 		| ESCRIBIR_CADENA '(' expr ')'	{code(escribir_cadena); $$ = $3;}
         | LEER '(' VAR ')'			{code2(leervariable,(Inst)$3);}
 		| LEER_CADENA '(' VAR ')'	{code2(leer_cadena,(Inst)$3);}
-		| TOKEN_BORRAR              {BORRAR;}
+		| TOKEN_BORRAR              {code(func_borrar);}
 		| TOKEN_LUGAR '(' expr ',' expr  ')'  {code(func_lugar);}
 											/*{code3(varpush,(Inst)$3, eval); code3(varpush,(Inst)$5,eval); funcion2();} /*func_lugar();  }*/
 											/*  printf("_ %s  _ $3 -> %d . %d\n", $3, (int)$3, (int)$5);  }
