@@ -96,5 +96,5 @@ void leervariable();
 void leer_cadena();
 
 void func_lugar();
-
+void func_borrar();
 #endif
