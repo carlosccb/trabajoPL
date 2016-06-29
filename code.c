@@ -693,6 +693,11 @@ void ifcode()
 /* Codigo hecho por mi para macros */
 /************************************/
 
+void func_borrar() {
+
+  BORRAR;
+}
+
 void func_lugar() {
 
   int fil, col;
