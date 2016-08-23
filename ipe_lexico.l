@@ -29,8 +29,8 @@ comentario_varias_lineas		\#([\n]|.)*\#
 
 (?i:_mod)				{return MODULO;}
 (?i:_div)				{return DIVISION_ENTERA;}
-(?i:_o)					{return O;}
-(?i:_y)					{return Y;}
+(?i:_o)					{return O_LOGICO;}
+(?i:_y)					{return Y_LOGICO;}
 (?i:_no)				{return NEGACION;}
 (?i:leer)				{return LEER;}
 (?i:leer_cadena)		{return LEER_CADENA;}
