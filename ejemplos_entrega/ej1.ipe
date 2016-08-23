@@ -1,0 +1,34 @@
+escribir_cadena('\n');
+escribir_cadena('  Este programa imprime fizz en los numeros divisibles por 3\n');
+escribir_cadena(' y buzz en los divisibles por 5. En los que son divisibles por ambos\n');
+escribir_cadena(' se imprime fizzbuzz. Si no es divisible por ninguno de los dos\n');
+escribir_cadena(' se imprime el número.\n\n\n');
+
+escribir_cadena(' Introduce un límite superior hasta el que imprimir los números: ');
+leer(limite);
+
+escribir_cadena('\n');
+
+para i desde 1 hasta limite paso 1 hacer
+	@ Si el numero es divisible por 3 se imprime fizz
+	si (0 = i _mod 3)
+	entonces  
+		escribir_cadena('fizz');
+	fin_si;
+
+	@ Si el numero es divisible por 5 se imprime buzz, 
+	@ si es divisible por ambos (3 y 5) se imprimen secuencialmente los dos
+	si (0 = i _mod 5) 
+	entonces  
+		escribir_cadena('buzz');
+	fin_si;
+
+	@ Si no es divisible por ninguno se imprime el número
+	si (0 <> i _mod 3 _y 0 <> i _mod 5)
+	entonces
+		escribir(i);
+	fin_si;
+
+	escribir_cadena('\n');
+
+fin_para;
