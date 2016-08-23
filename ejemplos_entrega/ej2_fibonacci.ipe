@@ -1,0 +1,22 @@
+escribir_cadena('\n');
+escribir_cadena('  Este programa calcula el número de fibonacci que ocupa la posicion deseada.\n');
+
+escribir_cadena(' Introduce la posicion deseada: ');
+leer(posicion);
+
+a := 0;
+b := 1;
+c := 1;
+
+para i desde 2 hasta posicion paso 1 hacer
+ c := a + b;
+ a := b;
+ b := c;
+fin_para;
+
+escribir_cadena('\n');
+escribir_cadena(' El número de fibonacci en la posicion ');
+escribir(posicion);
+escribir_cadena(' es -> ');
+escribir(c);
+escribir_cadena('\n');
