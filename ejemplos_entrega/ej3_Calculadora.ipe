@@ -1,0 +1,35 @@
+escribir_cadena('\n');
+escribir_cadena('  Este programa programa es una calculadora en la que se selecciona\n');
+escribir_cadena(' la operacion y se introducen los operandos.\n');
+leer(foo);
+
+
+@repetir
+
+	@opcion := 5;
+
+	escribir_cadena('Seleccione la operacion que quiera: \n');
+	escribir_cadena('1. Suma\n');
+	escribir_cadena('2. Resta\n');
+	escribir_cadena('3. Multiplicacion\n');
+	escribir_cadena('4. Division\n');
+	escribir_cadena('0. Salir\n');
+	escribir_cadena('Introduzca la opcion: ');
+	leer(opcion);
+	leer(opcion);
+
+	si (opcion = 0)
+	entonces
+		escribir_cadena('Saliendo del programa.\n');
+	fin_si;
+
+	escribir_cadena('\n');
+	leer(op_1);
+	escribir_cadena('\n');
+	leer(op_2);
+
+	@si_no
+
+	@fin_si;
+
+@hasta (opcion = 0);
