@@ -13,7 +13,7 @@ alfanum			{letra}|{digito}
 identificador	{letra}({alfanum}*[_]?{alfanum}+)*
 numero			{digito}+(\.{digito}+)?(E[+-]?{digito}+)?
 
-cadena			'.*(\\'.*\\')*.*'
+cadena			'.*(\\'.*)*.*'
 
 comentario_una_linea			@.*$
 comentario_varias_lineas		\#([\n]|.)*\#
