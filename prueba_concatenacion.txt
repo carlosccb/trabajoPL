@@ -1,0 +1,31 @@
+str1 := 'Primera Cadena';
+
+escribir_cadena(str1);
+escribir_cadena('\n');
+
+str2 := 'Segunda Cadena';
+
+escribir_cadena(str2);
+escribir_cadena('\n');
+
+str3 := 'Tercera Cadena';
+
+escribir_cadena(str3);
+escribir_cadena('\n');
+
+strFinal := str1 || ' ' || str2 || ' ' || str3;
+escribir_cadena(strFinal);
+escribir_cadena('\n');
+
+
+
+escribir_cadena('Hola ' || 'y adios');
+
+
+si (2 <> 3)
+
+	entonces escribir_cadena('Son diferentes\n');
+
+	si_no	escribir_cadena('Son iguales\n');
+
+fin_si;

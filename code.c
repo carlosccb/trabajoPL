@@ -480,6 +480,33 @@ void menor_igual()
  push(d1);     /* Apilar resultado */
 }
 
+
+
+void concatenar(){
+
+ Datum d1,d2;
+
+ d2=pop();
+ d1=pop();
+ 
+
+	if(d1.sym->cadena == 0 || d2.sym->cadena == 0)
+		execerror(" fallo al intentar concatenar dos elementos. Al menos uno no es una cadena ", (char *) 0);
+
+
+ char *newChar = malloc(strlen(d1.str) + strlen(d2.str) + 1);
+
+
+	strcat(newChar, d1.str);
+	strcat(newChar, d2.str);
+
+	d1.str = newChar;
+	push(d1);
+}
+
+
+
+
 void distinto()
 {
  Datum d1,d2;

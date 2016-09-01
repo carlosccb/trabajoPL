@@ -91,6 +91,7 @@ void distinto();
 void y_logico();
 void o_logico();
 void negacion();
+void concatenar();
 
 void leervariable();
 void leer_cadena();

@@ -37,7 +37,7 @@
 %left '+' '-'
 %left '*' '/' MODULO DIVISION_ENTERA
 %left UNARIO NEGACION
-%right POTENCIA 
+%right POTENCIA
 %%
 
 list :    /* nada: epsilon produccion */ 
@@ -148,6 +148,7 @@ expr :    NUMBER     		{$$=code2(constpush,(Inst)$1);}
         | expr Y_LOGICO expr 	{code(y_logico);}
         | expr O_LOGICO expr 	{code(o_logico);}
         | NEGACION expr			{$$=$2; code(negacion);}
+		| expr CONCATENACION expr			{code(concatenar);}
       	;
 
 %%
