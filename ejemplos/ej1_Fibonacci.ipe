@@ -1,5 +1,8 @@
+@Este fichero el numero de la sucesion de fibonacci que ocupa la posicion introducida
+
+@Esto es un mensaje explicativo de lo que hace el programa
 escribir_cadena('\n');
-escribir_cadena('  Este programa calcula el número de fibonacci que ocupa la posicion deseada.\n');
+escribir_cadena('  Este programa calcula el número de la sucesion de fibonacci que ocupa la posicion deseada.\n');
 
 escribir_cadena(' Introduce la posicion deseada: ');
 leer(posicion);
@@ -8,6 +11,7 @@ a := 0;
 b := 1;
 c := 1;
 
+@En un bucle para se itera hasta llegar a la posicion deseada
 para i desde 2 hasta posicion paso 1 hacer
  c := a + b;
  a := b;

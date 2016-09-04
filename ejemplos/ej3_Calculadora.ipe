@@ -1,3 +1,4 @@
+@Al iniciar se imprime un breve mensaje explicativo
 escribir_cadena('\n');
 escribir_cadena('  Este programa es una calculadora en la que se selecciona\n');
 escribir_cadena(' la operacion y se introducen los operandos.\n');
@@ -6,10 +7,12 @@ leer_cadena(foo);
 
 _borrar;
 
+@Este bucle simula un menu del que se sale al introducir la opcion 0
 repetir
 
 	resultado := 0;
 	
+	@Aqui se imprimen las diferentes opciones del menu
 	_lugar(2,10);
 	escribir_cadena('Seleccione la operacion que quiera: \n');
 	_lugar(3,3);
@@ -28,11 +31,13 @@ repetir
 	escribir_cadena('Introduzca la opcion: ');
 	leer(opcion);
 
+	@Si se ha seleccionado la opcion de salir, se sale con un breve mensaje por pantalla
 	si (opcion = 0)
 	entonces
 		_borrar;
 		_lugar(2,3);
 		escribir_cadena('Saliendo del programa.\n');
+	@si no se sale se piden los dos operandos y se realiza la operacion
 	si_no
 		_lugar(12,3);
 		escribir_cadena('Introduzca el primer operando: ');
@@ -63,11 +68,13 @@ repetir
 			resultado := op_1 / op_2;
 		fin_si;
 
+		@Despues de realizar la operacion se muestra el resultado por pantalla
 		_lugar(15,3);
 		escribir_cadena('El resultado de la operacion es: ');
 		escribir(resultado);
 		escribir_cadena('\n');
 
+		@Y se pide confirmacion para seguir la ejecucion, que ira al menu principal
 		_lugar(17,3);
 		escribir_cadena('\n Pulse una tecla para continuar: ');
 		leer_cadena(fooo);

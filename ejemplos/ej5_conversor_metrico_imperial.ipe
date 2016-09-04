@@ -1,3 +1,4 @@
+@Al principio se imprime un breve mensaje explicativo
 escribir_cadena('\n');
 escribir_cadena('  Este programa es un conversor de unidades del sistema\n');
 escribir_cadena(' metrico decimal al sistema imperial.\n');
@@ -6,14 +7,17 @@ leer_cadena(foo);
 
 _borrar;
 
+@Estos son los ratios de conversion de unidades que se usaran
 cm_inch_rate := 0.3937;
 m_feet_rate := 3.2808;
 km_mile_rate := 0.6214;
 kg_pnds_rate := 2.2046;
 
+@Este bucle simula un menu del que se sale al introducir la opcion 0
 repetir
 	resultado := 0;
 	
+	@En este menu se indica la direccion de conversion
 	_lugar(2,10);
 	escribir_cadena('Seleccione la conversion que quiera: \n');
 	_lugar(3,3);
@@ -35,6 +39,13 @@ repetir
 		_lugar(2,3);
 		escribir_cadena('Saliendo del programa.\n');
 	si_no
+		#
+		 A continuacion se lee la opcion deseada y el valor que se desea convertir
+		 Tras esto se imprime una linea indicando el valor de la conversion haciendo
+		 el calculo en el mismo condicional de la opcion usando los ratios anteriores.
+		 Si la direccion es de Imperial a Metrico, se usan (1/ratio).
+		#
+
 		si (opcion = 1)
 		entonces
 			_lugar(2,10);
@@ -159,6 +170,7 @@ repetir
 			fin_si;
 		fin_si;
 
+		@Aqui se pide una confirmacion para continuar con la ejecucion del bucle
 		_lugar(17,3);
 		escribir_cadena('\n Pulse una tecla para continuar: ');
 		leer_cadena(fooo);

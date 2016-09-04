@@ -1,3 +1,4 @@
+@Al principio se imprime un breve mensaje explicativo
 escribir_cadena('\n');
 escribir_cadena('  Este programa comprueba si un año es bisiesto.\n');
 escribir_cadena('\n Pulse una tecla: ');
@@ -6,7 +7,7 @@ leer_cadena(foo);
 _borrar;
 
 
-
+@Este bucle simula un menu del que se sale al introducir la opcion 0
 repetir
 	resultado := 0;
 	
@@ -38,6 +39,10 @@ repetir
 		escribir_cadena(' -> El año ');
 		escribir(year);
 
+		#
+		 En la clausula de este condicional se realiza la comprobacion de si el año introducido es bisiesto
+		 Se utilizan los operadores logicos en vez de tener que usar varios condicionales
+		#
 		si ( ((0 = year _mod 4) _y (0 <> year _mod 100)) _o (0 = year _mod 400))
 		entonces
 			escribir_cadena(' es bisiesto\n');
