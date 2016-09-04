@@ -34,32 +34,16 @@ repetir
  		escribir_cadena('Introduzca un año: ');
 		leer(year);
 
-		si ( 0 = year _mod 400 _y bisiesto_log = 2)
-		entonces
-			bisiesto_log := 1;
-		fin_si;
-				
-		si ( 0 = year _mod 100 _y bisiesto_log = 2)
-		entonces
-			bisiesto_log := 0;
-		fin_si;
-
-		si ( 0 = year _mod 4 _y bisiesto_log = 2)
-		entonces
-			bisiesto_log := 1;
-		fin_si;
-
-
 		_lugar(12,3);
 		escribir_cadena(' -> El año ');
 		escribir(year);
 
-		si (bisiesto_log = 0 _o bisiesto_log = 2)
+		si ( ((0 = year _mod 4) _y (0 <> year _mod 100)) _o (0 = year _mod 400))
 		entonces
-			escribir_cadena(' no');
+			escribir_cadena(' es bisiesto\n');
+		si_no
+			escribir_cadena(' no es bisiesto\n');
 		fin_si;
-
-		escribir_cadena(' es bisiesto\n');
 
 		_lugar(17,3);
 		escribir_cadena('\n Pulse una tecla para continuar: ');
