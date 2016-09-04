@@ -1,5 +1,5 @@
 escribir_cadena('\n');
-escribir_cadena('  Este programa programa es una calculadora en la que se selecciona\n');
+escribir_cadena('  Este programa es una calculadora en la que se selecciona\n');
 escribir_cadena(' la operacion y se introducen los operandos.\n');
 escribir_cadena('\n Pulse una tecla: ');
 leer_cadena(foo);
@@ -68,11 +68,11 @@ repetir
 		escribir(resultado);
 		escribir_cadena('\n');
 
-		@_lugar(17,3);
-		@escribir_cadena('\n Pulse una tecla para continuar: ');
-		@leer(foo);
-		@_borrar;
+		_lugar(17,3);
+		escribir_cadena('\n Pulse una tecla para continuar: ');
+		leer_cadena(fooo);
 
+		_borrar;
 	fin_si;;
 
 hasta (opcion = 0);
