@@ -1,0 +1,71 @@
+escribir_cadena('\n');
+escribir_cadena('  Este programa comprueba si un año es bisiesto.\n');
+escribir_cadena('\n Pulse una tecla: ');
+leer_cadena(foo);
+
+_borrar;
+
+
+
+repetir
+	resultado := 0;
+	
+	_lugar(2,10);
+	escribir_cadena('Seleccione la opcion que quiera: \n');
+	_lugar(4,3);
+	escribir_cadena('1. Introducir año.\n');
+	_lugar(5,3);
+	escribir_cadena('0. Salir\n');
+
+	_lugar(7,3);
+	escribir_cadena('Introduzca la opcion: ');
+	leer(opcion);
+
+	_borrar;
+
+	si (opcion = 0)
+	entonces
+		_lugar(2,3);
+		escribir_cadena('Saliendo del programa.\n');
+	si_no
+		bisiesto_log := 2;
+
+		_lugar(8,3); 
+ 		escribir_cadena('Introduzca un año: ');
+		leer(year);
+
+		si ( 0 = year _mod 400 _y bisiesto_log = 2)
+		entonces
+			bisiesto_log := 1;
+		fin_si;
+				
+		si ( 0 = year _mod 100 _y bisiesto_log = 2)
+		entonces
+			bisiesto_log := 0;
+		fin_si;
+
+		si ( 0 = year _mod 4 _y bisiesto_log = 2)
+		entonces
+			bisiesto_log := 1;
+		fin_si;
+
+
+		_lugar(12,3);
+		escribir_cadena(' -> El año ');
+		escribir(year);
+
+		si (bisiesto_log = 0 _o bisiesto_log = 2)
+		entonces
+			escribir_cadena(' no');
+		fin_si;
+
+		escribir_cadena(' es bisiesto\n');
+
+		_lugar(17,3);
+		escribir_cadena('\n Pulse una tecla para continuar: ');
+		leer_cadena(fooo);
+
+		_borrar;
+	fin_si;;
+
+hasta (opcion = 0);
