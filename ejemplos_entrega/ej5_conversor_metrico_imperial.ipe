@@ -1,0 +1,164 @@
+escribir_cadena('\n');
+escribir_cadena('  Este programa es un conversor de unidades del sistema\n');
+escribir_cadena(' metrico decimal al sistema imperial.\n');
+escribir_cadena('\n Pulse una tecla: ');
+leer_cadena(foo);
+
+_borrar;
+
+repetir
+	resultado := 0;
+	
+	_lugar(2,10);
+	escribir_cadena('Seleccione la conversion que quiera: \n');
+	_lugar(3,3);
+	escribir_cadena('1. Metrico -> Imperial\n');
+	_lugar(4,3);
+	escribir_cadena('2. Imperial -> Metrico\n');
+	_lugar(5,3);
+	escribir_cadena('0. Salir\n');
+	_lugar(8,3);
+
+	_lugar(10,3);
+	escribir_cadena('Introduzca la opcion: ');
+	leer(opcion);
+
+	_borrar;
+
+	si (opcion = 0)
+	entonces
+		_lugar(2,3);
+		escribir_cadena('Saliendo del programa.\n');
+	si_no
+		si (opcion = 1)
+		entonces
+			_lugar(2,10);
+			escribir_cadena('Metrico -> Imperial\n');
+			_lugar(3,3);
+			escribir_cadena('1. cm -> pulgadas \n');
+			_lugar(4,3);
+			escribir_cadena('2. m -> pies \n');
+			_lugar(5,3);
+			escribir_cadena('3. km -> millas \n');
+			_lugar(6,3);
+			escribir_cadena('4. kg -> libras \n');
+
+			_lugar(8,3); 
+ 			escribir_cadena('Introduzca una opcion: ');
+			leer(opcion);
+
+			_lugar(10,5);
+ 			escribir_cadena('Introduzca un valor: ');
+			leer(valor);
+
+			_lugar(12,5);
+			escribir(valor);
+
+             si (opcion = 1)
+             entonces
+ 					escribir_cadena(' cm son ');
+                 resultado := valor * 0.3937;
+ 					escribir(resultado);
+ 					escribir_cadena(' pulgadas.\n');
+             fin_si;
+ 
+             si (opcion = 2)
+             entonces
+ 					escribir_cadena(' m son ');
+                 resultado := valor * 3.2808;
+ 					escribir(resultado);
+ 					escribir_cadena(' pies.\n');
+             fin_si;
+ 
+             si (opcion = 3)
+             entonces
+ 					escribir_cadena(' km son ');
+                 resultado := valor * 0.6214;
+ 					escribir(resultado);
+ 					escribir_cadena(' millas.\n');
+             fin_si;
+ 
+             si (opcion = 4)
+             entonces
+ 					escribir_cadena(' kg son ');
+                 resultado := valor * 2.2046;
+ 					escribir(resultado);
+ 					escribir_cadena(' libras.\n');
+             fin_si;
+
+		si_no
+			si (opcion = 2)
+			entonces
+
+				_lugar(2,10);
+				escribir_cadena('Imperial -> Metrico\n');
+				_lugar(3,3);
+				escribir_cadena('1. pulgadas -> cm\n');
+				_lugar(4,3);
+				escribir_cadena('2. pies -> m\n');
+				_lugar(5,3);
+				escribir_cadena('3. millas -> km\n');
+				_lugar(6,3);
+				escribir_cadena('4. libras -> kg\n');
+				_lugar(7,3);
+
+				_lugar(8,3); 
+ 				escribir_cadena('Introduzca una opcion: ');
+				leer(opcion);
+
+				_lugar(10,5);
+ 				escribir_cadena('Introduzca un valor: ');
+				leer(valor);
+
+				_lugar(12,5);
+				escribir(valor);
+
+
+
+                  si (opcion = 1)
+                  entonces
+                         escribir_cadena(' pulgadas son ');
+                      resultado := valor * 2.54;
+                         escribir(resultado);
+                         escribir_cadena(' cm.\n');
+                  fin_si;
+  
+                  si (opcion = 2)
+                  entonces
+                         escribir_cadena(' pies son ');
+                      resultado := valor * 0.3048;
+                         escribir(resultado);
+                         escribir_cadena(' m.\n');
+                  fin_si;
+  
+                  si (opcion = 3)
+                  entonces
+                         escribir_cadena(' millas son ');
+                      resultado := valor * 1.6093;
+                         escribir(resultado);
+                         escribir_cadena(' km.\n');
+                  fin_si;
+  
+                  si (opcion = 4)
+                  entonces
+                         escribir_cadena(' libras son ');
+                      resultado := valor * 0.4536;
+                         escribir(resultado);
+                         escribir_cadena(' kg.\n');                                                                                                                                                                                                                                                                 
+                  fin_si;
+
+			si_no
+				escribir_cadena('Opcion erronea\n');
+				escribir_cadena('Pulse una tecla para continuar: ');
+				leer(fooo);
+			fin_si;
+		fin_si;
+
+		_lugar(17,3);
+		escribir_cadena('\n Pulse una tecla para continuar: ');
+		leer_cadena(fooo);
+
+		_borrar;
+	fin_si;;
+
+hasta (opcion = 0);
