@@ -6,6 +6,11 @@ leer_cadena(foo);
 
 _borrar;
 
+cm_inch_rate := 0.3937;
+m_feet_rate := 3.2808;
+km_mile_rate := 0.6214;
+kg_pnds_rate := 2.2046;
+
 repetir
 	resultado := 0;
 	
@@ -57,7 +62,7 @@ repetir
              si (opcion = 1)
              entonces
  					escribir_cadena(' cm son ');
-                 resultado := valor * 0.3937;
+                 resultado := valor * cm_inch_rate;
  					escribir(resultado);
  					escribir_cadena(' pulgadas.\n');
              fin_si;
@@ -65,7 +70,7 @@ repetir
              si (opcion = 2)
              entonces
  					escribir_cadena(' m son ');
-                 resultado := valor * 3.2808;
+                 resultado := valor * m_feet_rate;
  					escribir(resultado);
  					escribir_cadena(' pies.\n');
              fin_si;
@@ -73,7 +78,7 @@ repetir
              si (opcion = 3)
              entonces
  					escribir_cadena(' km son ');
-                 resultado := valor * 0.6214;
+                 resultado := valor * km_mile_rate;
  					escribir(resultado);
  					escribir_cadena(' millas.\n');
              fin_si;
@@ -81,7 +86,7 @@ repetir
              si (opcion = 4)
              entonces
  					escribir_cadena(' kg son ');
-                 resultado := valor * 2.2046;
+                 resultado := valor * kg_pnds_rate;
  					escribir(resultado);
  					escribir_cadena(' libras.\n');
              fin_si;
@@ -118,7 +123,7 @@ repetir
                   si (opcion = 1)
                   entonces
                          escribir_cadena(' pulgadas son ');
-                      resultado := valor * 2.54;
+                      resultado := valor * (1/cm_inch_rate);
                          escribir(resultado);
                          escribir_cadena(' cm.\n');
                   fin_si;
@@ -126,7 +131,7 @@ repetir
                   si (opcion = 2)
                   entonces
                          escribir_cadena(' pies son ');
-                      resultado := valor * 0.3048;
+                      resultado := valor * (1/m_feet_rate);
                          escribir(resultado);
                          escribir_cadena(' m.\n');
                   fin_si;
@@ -134,7 +139,7 @@ repetir
                   si (opcion = 3)
                   entonces
                          escribir_cadena(' millas son ');
-                      resultado := valor * 1.6093;
+                      resultado := valor * (1/km_mile_rate);
                          escribir(resultado);
                          escribir_cadena(' km.\n');
                   fin_si;
@@ -142,7 +147,7 @@ repetir
                   si (opcion = 4)
                   entonces
                          escribir_cadena(' libras son ');
-                      resultado := valor * 0.4536;
+                      resultado := valor * (1/kg_pnds_rate);
                          escribir(resultado);
                          escribir_cadena(' kg.\n');                                                                                                                                                                                                                                                                 
                   fin_si;
