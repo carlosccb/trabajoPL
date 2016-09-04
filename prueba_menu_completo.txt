@@ -4,7 +4,7 @@
 _borrar;
 _lugar(10,10);
 
-escribir_cadena('\nIntroduce tu nombre --> ');
+escribir_cadena('Introduce tu nombre --> ');
 leer_cadena(nombre);
 
 _borrar;
@@ -24,15 +24,14 @@ repetir
 	escribir_cadena(' Factorial de un número --> 1 ');
 
 	_lugar(11,10);
-	escribir_cadena('\n Máximo común divisor ----> 2 ');
+	escribir_cadena(' Máximo común divisor ----> 2 ');
 
 	_lugar(12,10);
-	escribir_cadena('\n Finalizar ---------------> 0 ');
+	escribir_cadena(' Finalizar ---------------> 0 ');
 
 	_lugar(15,10);
-	escribir_cadena('\n Elige una opcion: ');
+	escribir_cadena(' Elige una opcion: ');
 	leer(opcion);
-	escribir_cadena('\n\n\n');
 	_borrar;
 
 
@@ -50,10 +49,10 @@ repetir
 		entonces
 
 		    _lugar(10,10);
-			escribir_cadena('\n Factorial de un numero \n');
+			escribir_cadena(' Factorial de un numero \n');
 
 		    _lugar(11,10);
-			escribir_cadena('\n Introduce un numero entero: ');
+			escribir_cadena(' Introduce un numero entero: ');
 			leer(N);
 
 			factorial := 1;
@@ -130,12 +129,17 @@ repetir
 
 	fin_si;
 
+ _lugar(40,10); 
+ escribir_cadena('\n Pulse una tecla para continuar --> ');
+ leer_cadena(pausaa);
+ 
 
 hasta (opcion = 0);
 
 
-
-
+_borrar;
+_lugar(10,10);
+escribir_cadena('El programa ha concluido');
 
 
 
