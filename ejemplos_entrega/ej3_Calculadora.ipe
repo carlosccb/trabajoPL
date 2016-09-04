@@ -54,13 +54,13 @@ repetir
 
 		si (opcion = 3)
 		entonces
-			resultado := op_1 / op_2;
+			resultado := op_1 * op_2;
 		fin_si;
 
 
 		si (opcion = 4)
 		entonces
-			resultado := op_1 * op_2;
+			resultado := op_1 / op_2;
 		fin_si;
 
 		_lugar(15,3);
